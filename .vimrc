@@ -10,16 +10,19 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'fatih/vim-go'
 "Plugin 'vim-syntastic/syntastic.git'
 Plugin 'w0rp/ale'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'ajh17/Spacegray.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on    " required
-
-if has('gui_running')
-	colorscheme breeze
-else
+"colorscheme evening
+"if has('gui_running')
+"	colorscheme breeze
+"else
 	set bg=light
-endif
+"endif
 
 set number
 set tw=110
@@ -76,3 +79,29 @@ set backspace=indent,eol,start
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+let g:airline_theme='deus'
+
+" Theme and Styling 
+ set t_Co=256
+ set background=dark
+
+ if (has("termguicolors"))
+  set termguicolors
+ endif
+
+   let base16colorspace=256  " Access colors present in 256 colorspace
+   colorscheme spacegray
+   " colorscheme spacemacs-theme
+    
+    let g:spacegray_underline_search = 1
+    let g:spacegray_italicize_comments = 1
+
+
+"colorscheme evening
+set cursorline
+"hi CursorLine ctermbg=grey
+
+"This unsets the "last search pattern" register by hitting return
+"nnoremap <CR> :let @/ = ""
+:nnoremap <silent> <CR> :nohlsearch<CR><CR>
