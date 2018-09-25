@@ -45,6 +45,9 @@ set spell spelllang=en_us
 set expandtab
 set tabstop=4
 set shiftwidth=4
+set lazyredraw
+set re=1
+set synmaxcol=150
 
 " don't connect to X to get the clipboard info
 set clipboard=exclude:.*
@@ -61,7 +64,8 @@ set clipboard=exclude:.*
 "let g:syntastic_check_on_wq = 0
 
 " Configure linter
-let b:ale_linters = {'cpp': ['cpplint']}
+let b:ale_linters = {'cpp': ['cpplint'], 'rust': ['rls', 'cargo']}
+let g:ale_rust_rls_toolchain = ''
 
 " Tell vim to remember certain things when we exit
 "  '10  :  marks will be remembered for up to 10 previously edited files
@@ -105,3 +109,6 @@ set cursorline
 "This unsets the "last search pattern" register by hitting return
 "nnoremap <CR> :let @/ = ""
 :nnoremap <silent> <CR> :nohlsearch<CR><CR>
+
+" configuration for rust
+let g:rustfmt_autosave = 1
