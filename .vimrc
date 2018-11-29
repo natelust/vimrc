@@ -64,7 +64,7 @@ set clipboard=exclude:.*
 "let g:syntastic_check_on_wq = 0
 
 " Configure linter
-let b:ale_linters = {'cpp': ['cpplint'], 'rust': ['rls', 'cargo']}
+let b:ale_linters = {'cpp': ['cpplint'], 'rust': ['rls', 'cargo'], 'python': ['flake8', 'pylint']}
 let g:ale_rust_rls_toolchain = ''
 
 " Tell vim to remember certain things when we exit
