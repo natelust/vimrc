@@ -13,7 +13,11 @@ Plugin 'w0rp/ale'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ajh17/Spacegray.vim'
-
+Plugin 'ayu-theme/ayu-vim'
+Plugin 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 " All of your Plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on    " required
@@ -64,8 +68,9 @@ set clipboard=exclude:.*
 "let g:syntastic_check_on_wq = 0
 
 " Configure linter
-let b:ale_linters = {'cpp': ['cpplint'], 'rust': ['rls', 'cargo'], 'python': ['flake8', 'pylint']}
+let b:ale_linters = {'cpp': ['cpplint'], 'rust': ['rls','cargo'], 'python': ['flake8', 'pylint']}
 let g:ale_rust_rls_toolchain = ''
+let g:ale_set_loclist = 0
 
 " Tell vim to remember certain things when we exit
 "  '10  :  marks will be remembered for up to 10 previously edited files
@@ -95,11 +100,13 @@ let g:airline_theme='deus'
  endif
 
    let base16colorspace=256  " Access colors present in 256 colorspace
-   colorscheme spacegray
+   "colorscheme spacegray
    " colorscheme spacemacs-theme
     
-    let g:spacegray_underline_search = 1
-    let g:spacegray_italicize_comments = 1
+    "let g:spacegray_underline_search = 1
+    "let g:spacegray_italicize_comments = 1
+let ayucolor="dark"
+colorscheme ayu
 
 
 "colorscheme evening
@@ -112,3 +119,8 @@ set cursorline
 
 " configuration for rust
 let g:rustfmt_autosave = 1
+
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rls']}
+
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
