@@ -14,10 +14,10 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ajh17/Spacegray.vim'
 Plugin 'ayu-theme/ayu-vim'
-Plugin 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+"Plugin 'autozimu/LanguageClient-neovim', {
+"    \ 'branch': 'next',
+"    \ 'do': 'bash install.sh',
+"    \ }
 " All of your Plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on    " required
@@ -68,9 +68,9 @@ set clipboard=exclude:.*
 "let g:syntastic_check_on_wq = 0
 
 " Configure linter
-let b:ale_linters = {'cpp': ['cpplint'], 'rust': ['rls','cargo'], 'python': ['flake8', 'pylint']}
-let g:ale_rust_rls_toolchain = ''
-let g:ale_set_loclist = 0
+let g:ale_linters = {'cpp': ['cpplint'], 'rust': ['rls', 'cargo'], 'python': ['flake8', 'pylint']}
+let g:ale_rust_rls_toolchain="stable-x86_64-unknown-linux-gnu"
+"let g:ale_set_loclist = 0
 
 " Tell vim to remember certain things when we exit
 "  '10  :  marks will be remembered for up to 10 previously edited files
@@ -120,7 +120,7 @@ set cursorline
 " configuration for rust
 let g:rustfmt_autosave = 1
 
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rls']}
+"let g:LanguageClient_serverCommands = {
+"    \ 'rust': ['rls']}
 
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> K :ALEHover <CR>
