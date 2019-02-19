@@ -14,6 +14,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ajh17/Spacegray.vim'
 Plugin 'ayu-theme/ayu-vim'
+"Plugin 'morhetz/gruvbox'
 "Plugin 'autozimu/LanguageClient-neovim', {
 "    \ 'branch': 'next',
 "    \ 'do': 'bash install.sh',
