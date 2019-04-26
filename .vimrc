@@ -72,6 +72,7 @@ set clipboard=exclude:.*
 let g:ale_linters = {'cpp': ['cpplint'], 'rust': ['rls', 'cargo'], 'python': ['flake8', 'pylint']}
 let g:ale_rust_rls_toolchain="stable-x86_64-unknown-linux-gnu"
 "let g:ale_set_loclist = 0
+let g:ale_completion_enabled = 1
 
 " Tell vim to remember certain things when we exit
 "  '10  :  marks will be remembered for up to 10 previously edited files
