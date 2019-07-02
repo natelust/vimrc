@@ -14,11 +14,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ajh17/Spacegray.vim'
 Plugin 'ayu-theme/ayu-vim'
-"Plugin 'morhetz/gruvbox'
-"Plugin 'autozimu/LanguageClient-neovim', {
-"    \ 'branch': 'next',
-"    \ 'do': 'bash install.sh',
-"    \ }
+Plugin 'majutsushi/tagbar'
 " All of your Plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on    " required
@@ -41,10 +37,6 @@ endif
 
 nmap <F8> :TagbarToggle<CR>
 
-"if has('gui_running')
-"	autocmd VimEnter * nested :TagbarOpen
-"endif
-
 set spell spelllang=en_us
 
 set expandtab
@@ -56,17 +48,6 @@ set synmaxcol=150
 
 " don't connect to X to get the clipboard info
 set clipboard=exclude:.*
-
-"let g:syntastic_cpp_compiler = 'clang++'
-"let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
-"let g:syntastic_cpp_cpplint_exec = 'cpplint'
-"let g:syntastic_cpp_checkers = ['cpplint']
-"let g:syntastic_python_checkers = ['flake8']
-"let g:syntastic_aggregate_errors = 1
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
 
 " Configure linter
 let g:ale_linters = {'cpp': ['cpplint'], 'rust': ['rls', 'cargo'], 'python': ['flake8', 'pylint']}
@@ -107,8 +88,10 @@ let g:airline_theme='deus'
     
     "let g:spacegray_underline_search = 1
     "let g:spacegray_italicize_comments = 1
-let ayucolor="dark"
+let ayucolor="mirage"
 colorscheme ayu
+
+:set list lcs=tab:\|\ 
 
 
 "colorscheme evening
@@ -122,7 +105,6 @@ set cursorline
 " configuration for rust
 let g:rustfmt_autosave = 1
 
-"let g:LanguageClient_serverCommands = {
-"    \ 'rust': ['rls']}
 
 nnoremap <silent> K :ALEHover <CR>
+set encoding=UTF-8
