@@ -50,7 +50,9 @@ set synmaxcol=150
 set clipboard=exclude:.*
 
 " Configure linter
-let g:ale_linters = {'cpp': ['cpplint'], 'rust': ['rls', 'cargo'], 'python': ['flake8', 'pylint']}
+let g:ale_linters = {'cpp': ['cpplint'], 'rust': ['rls', 'cargo'], 'python': ['pyls', 'flake8']}
+"let g:ale_python_pyls_config = {"configurationSources": ['flake8'], "plugins": {"pycodestyle":{ "enabled": v:false}}}
+let g:ale_python_pyls_config = {"pyls": {"plugins": {"pyflakes":{ "enabled": v:false}, "pycodestyle": {"enabled": v:false}}}}
 let g:ale_rust_rls_toolchain="stable-x86_64-unknown-linux-gnu"
 "let g:ale_set_loclist = 0
 let g:ale_completion_enabled = 1
