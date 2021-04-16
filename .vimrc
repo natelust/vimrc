@@ -8,13 +8,14 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'rust-lang/rust.vim' 
 Plugin 'fatih/vim-go'
+Plugin 'dense-analysis/ale.git'
 "Plugin 'vim-syntastic/syntastic.git'
-Plugin 'w0rp/ale'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ajh17/Spacegray.vim'
+"Plugin 'ajh17/Spacegray.vim'
 Plugin 'ayu-theme/ayu-vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'junegunn/fzf.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on    " required
@@ -50,12 +51,46 @@ set synmaxcol=150
 set clipboard=exclude:.*
 
 " Configure linter
-let g:ale_linters = {'cpp': ['cpplint'], 'rust': ['rls', 'cargo'], 'python': ['pyls', 'flake8']}
-"let g:ale_python_pyls_config = {"configurationSources": ['flake8'], "plugins": {"pycodestyle":{ "enabled": v:false}}}
-let g:ale_python_pyls_config = {"pyls": {"plugins": {"pyflakes":{ "enabled": v:false}, "pycodestyle": {"enabled": v:false}}}}
-let g:ale_rust_rls_toolchain="stable-x86_64-unknown-linux-gnu"
+"let b:ale_linters = {'cpp': ['cpplint'], 'rust': ['rls', 'cargo'], 'python': ['pyls', 'flake8']}
+let g:ale_linters = {'cpp': ['cpplint'], 'rust': ['rls', 'cargo'], 'python': ['flake8', 'pyls']}
+"let g:ale_linters_ignore = ['pyls']
+"let g:ale_python_pyls_config = {"configurationSources": ['flake8'],"plugins": {"pycodestyle": {"enabled": v:false}}}
+"let g:ale_python_pyls_config = { 'plugins': { 'pycodestyle': { 'enabled': v:false } , 'flake8': { 'enabled': v:false } , 
+"                                             \ 'pyflakes': {'enabled': v:false } } }
+let g:ale_python_pyls_config = {
+          \   'pyls': {
+      \     'plugins': {
+      \       'pycodestyle': {
+      \         'enabled': v:false
+      \       }
+      \     }
+      \   },
+      \ }
+"   'pyls': {
+"       'plugins': {
+"           'pyflakes': {
+"               'enabled': v:false
+"           },
+"           'pydocstyle': {
+"               'enabled': v:false
+"           },
+"           'flake8': {
+"               'enabled': v:false
+"           },
+"           'mypy': {
+"               'enabled': v:true
+"           }
+"       }
+"   }
+"}
+let g:ale_python_pyls_options = '-vvv'
+"let b:ale_python_pyls_config = {"pyls": {"plugins": {"pyflakes":{ "enabled": v:false}, "pycodestyle": {"enabled": v:true}}}}
+let b:ale_rust_rls_toolchain="stable-x86_64-unknown-linux-gnu"
 "let g:ale_set_loclist = 0
+let b:ale_completion_enabled = 1
 let g:ale_completion_enabled = 1
+let g:ale_linters_explicit = 1
+let b:ale_linters_explicit = 1
 
 " Tell vim to remember certain things when we exit
 "  '10  :  marks will be remembered for up to 10 previously edited files
